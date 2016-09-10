@@ -1,0 +1,82 @@
+/*********************DATABASE*****************************/
+
+#database {
+    background: #F6F6F6;
+    height: 100%;
+    text-align: justify;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.container {
+    position: relative;
+    order: 0;
+}
+
+.dbtitle {
+/*    position: absolute;*/
+    font-size: 500%;
+    letter-spacing: 10px;
+    /*    color: rgba(100,100,100,0.8);*/
+    order: 4;
+color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 165px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px #fff;
+    align-self: flex-end;
+}
+
+.codes {
+    align-self: flex-start;
+    opacity: .4;
+    cursor: default;
+}
+
+#database>div.blurb {
+    /*    display: flex;*/
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    height: 25%;
+    order: 3;
+    width: 60%;
+    max-width: 600px;
+    background: white;
+    flex: 0 1 auto;
+    align-self: center;
+}
+
+#database>div>p:first-letter {
+    text-transform: uppercase;
+    text-emphasis: bold;
+}
+
+#database>div>p {
+    color: #424242;
+    font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: lowercase;
+    line-height: 145%;
+    font-size: 150%;
+    font-variant: small-caps;
+}
+
+.logos {
+    display: flex;
+    height: 10%;
+    order: 4;
+    margin-bottom: 10px;
+}
+
+.log:hover {
+    opacity: .8;
+}
+
+.log {
+    align-content: center;
+    flex: 1;
+    opacity: .2;
+}
+
+.logos>img {
+    object-fit: contain;
+}

@@ -1,0 +1,171 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/database.css">
+    <link rel="stylesheet" href="css/design.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <script src="https://use.fontawesome.com/c03b565749.js"></script>
+<!--    <link rel="stylesheet" href="css/font-awesome.min.css">-->
+    <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql"></script>
+</head>
+
+<body class="flex-container">
+
+      <div id="topofpage"></div>
+   <div class="stickynav">
+       <a class="ani" href="#database"><span class="ico fa fa-database fa-2x" aria-hidden="true"></span></a>
+       <a class="ani" href="#design"><span class="ico fa fa-desktop fa-2x" aria-hidden="true"></span></a>
+       <a class="ani" href="#web"><span class="ico fa fa-css3 fa-2x" aria-hidden="true"></span></a>
+  <canvas id="num" >asdasd</canvas> 
+   </div>
+    <section class="content">
+        <div class="main">
+            <section class="name"> Gabriel Habayeb </section>
+            <seciton class="tag"> Design Code. </seciton>
+            <section class="links"> <a class="ani nav" href="#database" id="db"> Database </a> <a class="ani nav" href="#design"> Design </a>  <a class="ani nav" href="#web"> Web </a> </section>
+        </div>
+    </section>
+    <!--    DATABASE-->
+    <section class="content" id="database">
+        <div class="blurb">
+            <p> The declarative nature of Databases allows for logical and powerful code. For me, the magic behind SQL is being able to translate <em> millions </em> of seemingly unrelated records into pure, intelligible data. Plus being able to store, query and return data is pretty nifty too. </p>
+        </div>
+        <h1 class="dbtitle">
+        Databases
+    </h1>
+        <div class="container"> <code class="prettyprint lang-sql">
+           <span class="codes">
+            SELECT r.name FROM recipes r, ingredients i
+            WHERE r.Rid = i.Rid
+            AND "Zucchini" in (SELECT name FROM ingredients);
+            </span>
+            <span class="codes">
+            CREATE TABLE IF NOT EXISTS Perform(
+            songId INTEGER ,
+            ssn varCHAR(10),
+            title varCHAR(30),
+            PRIMARY KEY (ssn,songId),
+            FOREIGN KEY (songId) References  Songs(songId),
+            FOREIGN KEY (ssn) References Musicians (ssn));
+            </span>
+            <span class="codes">CREATE TABLE `Catalog` (
+            `sid` varchar(3) NOT NULL,
+            `pid` varchar(3) NOT NULL,
+            `cost` int(5) NOT NULL,
+            PRIMARY KEY (`sid`,`pid`),
+            KEY `pid_idx` (`pid`),
+            CONSTRAINT `pid` FOREIGN KEY (`pid`) REFERENCES `Parts` (`pid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+            CONSTRAINT `sid` FOREIGN KEY (`sid`) REFERENCES `Suppliers` (`sid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </span>
+            <span class="codes">
+            CREATE FUNCTION get_minutes( degrees DOUBLE )
+            RETURNS INTEGER
+            CONTAINS SQL
+            RETURN CAST( (get_fraction(degrees) * 60.0) as INTEGER )
+            ;
+            </span>
+            <span class="codes">
+                SELECT &SELECT1
+            FROM Q.STAFF
+            WHERE &COND1
+            </span>
+            <span class="codes">
+            SELECT array_agg(players), player_teams
+            FROM (
+            SELECT DISTINCT t1.t1player AS players, t1.player_teams
+            FROM (
+            p.playerid AS t1id,
+            concat(p.playerid,':', p.playername, ' ') AS t1player,
+            array_agg(pl.teamid ORDER BY pl.teamid) AS player_teams
+            FROM player p
+            LEFT JOIN plays pl ON p.playerid = pl.playerid
+            GROUP BY p.playerid, p.playername
+            ) t1
+            INNER JOIN (
+            SELECT
+            p.playerid AS t2id,
+            array_agg(pl.teamid ORDER BY pl.teamid) AS player_teams
+            FROM player p
+            LEFT JOIN plays pl ON p.playerid = pl.playerid
+            GROUP BY p.playerid, p.playername
+            ) t2 ON t1.player_teams=t2.player_teams AND t1.t1id <> t2.t2id
+            ) innerQuery
+            GROUP BY player_teams;
+           </span>
+           <span class="codes">
+            SELECT STREAM
+            orderTime,
+            orderState,
+            count(*)
+            OVER (PARTITION BY
+            orderState RANGE INTERVAL '1' HOUR) AS "stateLastHour",
+            count(*) OVER (RANGE INTERVAL '1' HOUR) AS "totalLastHour"
+            FROM Orders;
+           </span>
+           <span class="codes">
+            CREATE FUNCTION get_seconds( degrees DOUBLE )
+            RETURNS INTEGER
+            CONTAINS SQL
+            RETURN CAST(((get_fraction(degrees) * 3600.0) - ((get_minutes(degrees) * 60)))
+            as INTEGER );
+            </span>
+        </code>
+             </div>
+             <div class="logos">
+                 <img src="img/MongoDBlogo.svg" alt="" class="log">
+                 <img src="img/mssqllogo.svg" alt="" class="log">
+                 <img src="img/mysql.png" alt="" class="log">
+             </div>
+    </section>
+    <!--    DESIGN-->
+    <section class="content par " id="design">
+        <div class="clearfix">
+            <h1 class="dh1">
+                Purposeful Design  
+            </h1>
+            
+        </div>
+        <div class="loadRow"> <img src="img/imgr">
+            <div class="texts"> <p> Whitespace isn't wasted space, <br> let content be the first thing seen.</p> </div>
+        </div>
+        <div class="padd">
+        <div class="dh2"> Beautiful Results </div>
+        </div>
+        <div class="loadRow">
+            <div class="texts"> <p id='in'>Match style to company function for<br> maximum results.</p> </div> <img src="img/mycgrow.png" id="myc"> </div>
+    </section>
+     
+    <section class="content" id="web">
+    
+    <div 
+    
+    
+     </section>
+     
+     
+     
+     
+    <script type="text/javascript" src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/velocity.min.js"></script>
+    <script src="js/vendor/velocity.ui.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/ani.js"></script>
+</body>
+
+</html>
