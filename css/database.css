@@ -15,12 +15,18 @@
 }
 
 .dbtitle {
-/*    position: absolute;*/
+    /*    position: absolute;*/
     font-size: 500%;
     letter-spacing: 10px;
-    /*    color: rgba(100,100,100,0.8);*/
     order: 4;
-color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 165px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px #fff;
+    color: #d54d7b;
+    font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
+    line-height: 160px;
+    font-weight: normal;
+    margin-bottom: 0px;
+    margin-top: 40px;
+    text-align: center;
+    text-shadow: 0 1px 1px #fff;
     align-self: flex-end;
 }
 
@@ -34,8 +40,8 @@ color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 165px; line-heig
     /*    display: flex;*/
     align-items: center;
     justify-content: center;
-    align-self: flex-end;
-    height: 25%;
+    /*align-self: flex-end;*/
+    /*height: 25%;*/
     order: 3;
     width: 60%;
     max-width: 600px;
