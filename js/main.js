@@ -1,3 +1,6 @@
+        var Utils = new Utils();
+
+
 $(document).ready(function () {
     var x = $(".stickynav").height();
     var bg = document.getElementById("num");
@@ -22,36 +25,7 @@ $(document).ready(function () {
         ctx.stroke();
     }
 
-    function Utils() {}
-    Utils.prototype = {
-        constructor: Utils
-        , isElementInView: function (element, viewType) {
-            if ((typeof element) === "object") {
-                var h = $(element).height();
-                var elementTop = $(element).offset().top;
-                var elementBottom = elementTop + $(element).height();
-            }
-            var pageTop = $(window).scrollTop();
-            var pageBottom = pageTop + $(window).height();
-            if (viewType === 1) {
-                return ((pageTop < elementTop) && (pageBottom > elementBottom));
-            }
-            else if (viewType === 'body') {
-                //                return ({view:elementBottom <= pageBottom) && (elementTop >= pageTop)
-                return ({
-                    view: "body"
-                    , percent: Math.floor((pageTop) / (document.documentElement.scrollHeight - $(window).height()) * 100)
-                });
-            }
-            else {
-                return ({
-                    view: (pageTop <= elementBottom && pageTop >= elementTop)
-                    , percent: Math.floor((pageTop - elementTop) / h * 100)
-                })
-            };
-        }
-    };
-    var Utils = new Utils();
+    
     
 //    Event Controlling with jQuery
     $("#db").click(function () {
@@ -101,15 +75,18 @@ $(document).ready(function () {
         });
         $(this).removeClass('hover2');
     });
+    
     $(window).scroll(function () {
-        var isElementInView = Utils.isElementInView("", "body");
+        var isElementInView = Utils.isElementInView(0, "body");
         //        if (isElementInView.view) {
         draw(isElementInView.percent);
         //            $("#num").text(isElementInView.percent);
-        console.log("percent " + isElementInView.percent);
+        // console.log("percent " + isElementInView.percent);
         //        }
         //        else {
         //            console.log('out of view');
         //        }
+        
+        Utils.remainFixed(".main", "#database", 0);
     });
 });
